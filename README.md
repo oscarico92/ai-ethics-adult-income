@@ -1,29 +1,34 @@
-# AI Ethics — Adult Income
+# AI Ethics : Adult Income
 
-Projet d’éthique de l’IA consacré à l’audit et à la réduction des biais dans la prédiction du revenu annuel à partir du jeu de données **Adult Income**.
+Projet du cours *Ethics of AI* (ECE Paris, ING5 Data & IA) : rendre « éthique by design » un workflow d'IA classique.
 
-## Objectif
+**Cas d'usage :** pré-qualification automatisée d'une demande de crédit (revenu > 50 000 $ ?), système classé à haut risque par l'AI Act.
 
-Comparer trois méthodes d’adaptation d’un modèle de langage pour une tâche de classification tabulaire transformée en texte :
+## Démarche
 
-- fine-tuning complet de DistilBERT ;
-- LoRA ;
-- distillation vers un modèle plus compact.
-
-Le projet mesure les écarts entre groupes selon le sexe et l’origine déclarée, applique une repondération des données et explique les décisions grâce à **LIME** et **SHAP**.
+1. **Audit des biais** du dataset Adult Income par sexe, par origine et par **sexe × origine** (analyse intersectionnelle).
+2. **Réduction des biais** par repondération Kamiran–Calders sur le groupe intersectionnel, plus une variante sans attributs sensibles dans l'entrée.
+3. **Adaptation d'un modèle de langage** (DistilBERT) avec les trois méthodes du cours : fine-tuning complet, LoRA, distillation vers BERT-tiny.
+4. **Benchmark** : F1 macro, taux de prédiction positive, écarts de parité et d'égalité des chances, temps, paramètres entraînés, taille sur disque.
+5. **Choix du modèle retenu** selon un critère explicite (équité, puis performance, puis sobriété).
+6. **Démo contrefactuelle** : même dossier, seuls le sexe et l'origine changent, avant / après correction.
+7. **Explications** LIME et SHAP sur la démo.
 
 ## Exécution dans Google Colab
 
-1. Ouvrir `Projet_Ethique_IA_Adult_Income_Colab.ipynb`.
-2. Sélectionner **Exécution → Modifier le type d’exécution → GPU T4**.
-3. Lancer **Exécution → Tout exécuter**.
-4. Si Colab redémarre après l’installation, relancer toutes les cellules.
+1. Ouvrir `Projet_Ethique_IA_Adult_Income_Colab.ipynb` dans Colab.
+2. **Exécution → Modifier le type d'exécution → GPU T4**.
+3. **Exécution → Tout exécuter**. Si Colab demande de redémarrer après l'installation, redémarrer puis relancer toutes les cellules.
 
-Durée indicative : 15 à 30 minutes selon le GPU disponible.
+Les figures et tableaux sont enregistrés dans `resultats_projet_ethique/`.
 
 ## Résultats
 
-Le notebook produit un audit des biais initiaux, un benchmark fine-tuning/LoRA/distillation, une comparaison avant/après repondération et des explications LIME et SHAP.
+*À compléter après exécution : tableau du benchmark, modèle retenu, principaux écarts avant / après.*
+
+## Équipe
+
+*À compléter.*
 
 ## Avertissement éthique
 

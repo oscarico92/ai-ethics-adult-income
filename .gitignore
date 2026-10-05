@@ -4,7 +4,6 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Experiment outputs
-resultats_projet_ethique/
 modeles_ethique/
 *.pt
 *.bin
